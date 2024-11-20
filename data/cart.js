@@ -68,3 +68,14 @@ export function addToCart(productId){
 
         saveToStorage();
     }
+
+    export function loadCart(fun){
+
+        const xhr = new XMLHttpRequest();
+      
+        xhr.addEventListener('load', () => {
+        fun();
+        });
+        xhr.open('GET', 'https://supersimplebackend.dev/cart');
+        xhr.send();
+       }
